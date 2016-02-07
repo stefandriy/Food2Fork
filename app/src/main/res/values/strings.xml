@@ -1,4 +1,13 @@
 <resources>
-    <string name="app_name">Food2Fork</string>
+    <string name="app_name">Food2fork</string>
     <string name="action_settings">Settings</string>
+    <string name="recipe">Recipe</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="showingRecentRecipe">Showing recent recipes</string>
+    <string name="showingTopRecipe">Showing top recipes</string>
+    <string name="resultsFor">Results for: </string>
+    <string name="showTop">Show top</string>
+    <string name="showRecent">Show recent</string>
+    <string name="exit">Exit</string>
+    <string name="enterYourSearch">Your search query</string>
 </resources>

@@ -15,8 +15,6 @@ import com.teamvoy.cam.food2fork.entity.RecipeDetails;
 import com.teamvoy.cam.food2fork.entity.RecipeDetailsData;
 import com.teamvoy.cam.food2fork.service.RestService;
 
-import org.w3c.dom.Text;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import retrofit2.Call;
