@@ -8,15 +8,31 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.teamvoy.cam.food2fork.R;
+import com.teamvoy.cam.food2fork.entity.RecipeDetails;
+import com.teamvoy.cam.food2fork.entity.RecipeDetailsData;
+import com.teamvoy.cam.food2fork.service.RestService;
+
+import org.w3c.dom.Text;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
+
+    @Bind(R.id.text_view)
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -28,6 +44,28 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
+        RestService.instance().getRecipeDetails(RestService.API_KEY, "47024").enqueue(new Callback<RecipeDetailsData>() {
+            @Override
+            public void onResponse(Call<RecipeDetailsData> call, Response<RecipeDetailsData> response) {
+                RecipeDetails recipeDetails = response.body().getRecipeDetails();
+//                mEmptyListProgressAnimation.setVisibility(View.GONE);
+                fillData(recipeDetails);
+            }
+
+            @Override
+            public void onFailure(Call<RecipeDetailsData> call, Throwable t) {
+//                mEmptyListProgressAnimation.setVisibility(View.GONE);
+                finish();
+            }
+        });
+
+    }
+
+    void fillData (RecipeDetails recipeDetails) {
+//        TextView textView = (TextView) findViewById(R.id.text_view);
+        textView.setText(recipeDetails.toString());
     }
 
     @Override

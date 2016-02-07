@@ -7,6 +7,6 @@ import java.util.List;
 public class RecipesData {
 
     @SerializedName("recipes")
-    private List<Recipe> mRecipes;
+    private List<Recipe> recipes;
 
 }

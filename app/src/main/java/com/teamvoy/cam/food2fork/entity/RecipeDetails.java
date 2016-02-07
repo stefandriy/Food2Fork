@@ -21,4 +21,13 @@ public class RecipeDetails extends Recipe {
     @SerializedName("publisher_url")
     private String publisherUrl;
 
+    @Override
+    public String toString() {
+        return "RecipeDetails{" +
+                "ingredients=" + ingredients +
+                ", sourceUrl='" + sourceUrl + '\'' +
+                ", f2fUrl='" + f2fUrl + '\'' +
+                ", publisherUrl='" + publisherUrl + '\'' +
+                '}';
+    }
 }
